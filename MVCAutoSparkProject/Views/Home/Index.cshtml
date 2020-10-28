@@ -1,0 +1,340 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head>
+    <title>AutoSpark</title>
+    <meta charset=utf-8 />
+    <link rel="stylesheet" href="~/Content/Style.css" />
+    <link rel="stylesheet" href="~/Content/style1.css" />
+    @*<link rel="stylesheet" href="~/Content/footercss.css" />*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+
+</head>
+<body>
+    <!-- Shell -->
+    <div class="shell">
+        <!-- Header -->
+        <div id="header">
+            <!-- Logo -->
+            <h1 id="logo"><a href="#">autoSpark</a></h1>
+            <!-- End Logo -->
+            <!-- Navigation -->
+            <div id="nav">
+                @*<ul>
+            <li><a class="active" href="#">Register</a></li>
+            <li><a href="#">Login</a></li>
+
+
+        </ul>*@
+                
+
+                @Html.Partial("_LoginPartial")
+            </div>
+            <!-- End Navigation -->
+        </div>
+        <!-- End Header -->
+        <!-- Content -->
+        <div id="content">
+            <!-- Sidebar -->
+            <div id="sidebar">
+
+                <div class="links">
+                    <div class="cl">&nbsp;</div>
+
+                    <a href="/Customer/" class="left">Existing Customers</a>
+                    <a href="/Customer/ServiceType/" class="right">Service Types</a>
+                    <div class="cl">&nbsp;</div>
+
+                    <a href="/Home/Secondhand" class="left">Car Dekho</a>
+                    <a href="/Account/Register/" class="right">Register Now</a>
+                    <div class="cl">&nbsp;</div>
+
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+                <!-- End Sign In Links -->
+                <!-- Box Latest News -->
+                <div class="box">
+                    <h2>Latest News</h2>
+                    <ul>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb1.png" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">CEAT Tyres Digitally Transforms</a></h5>
+                                <p>One of India's leading tyre manufacturers, has digitally transformed its supply chain with Blue Yonder. </p>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb2.jpg" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">Porsche Panamera 2021</a></h5>
+                                <p>The Panamera range also includes a massively more powerful Turbo S and a new plug-in hybrid variant. </p>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb3.png" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">BS6 engine</a></h5>
+                                <p>The much-publicized BS6 emission norms come into effect from 1 April 2020</p>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb4.jpg" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">Spicier Hyundai Kona</a></h5>
+                                <p>Cosmetic changes include a sharper front bumper, new grille, sleek split headlamps and new LED DRLs. </p>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                    </ul>
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+                <!-- End Box Latest News -->
+                <!-- Box Latest Reviews -->
+                <div class="box">
+                    <h2>Latest Offers</h2>
+                    <ul>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb5.png" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">Oil change - Full Synthetic</a></h5>
+                                <p>
+                                    Oil change intervals vary by vehicle manufacturer,
+                                    a good rule of thumb to follow is to change conventional motor oil every 3,000 to 5,000 miles.
+                                </p>
+                            </div>
+                            @*<div class="cl">&nbsp;&nbsp;&nbsp;</div>*@
+                            @*&nbsp;*@
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb6.jpg" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">Fuel Filter</a></h5>
+                                <p>
+                                    A fuel filter is a filter in a fuel line that screens out dirt and rust particles from the fuel,
+                                    and is normally made into cartridges containing a filter paper.
+                                </p>
+                            </div>
+                            @*<div class="cl">&nbsp;&nbsp;&nbsp;</div>
+                    &nbsp;*@
+
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb7.jpg" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">Wax washing </a></h5>
+                                <p>Car cleaner and conserve water, you're better off having a professional wash your car by hand. </p>
+                            </div>
+                            <div class="cl">&nbsp;&nbsp;&nbsp;</div>
+                            &nbsp;
+
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/thumb8.jpg" alt="" /></a>
+                            <div class="info">
+                                <h5><a href="#">Car Dent Paint Packages</a></h5>
+                                <p>Get rid of dents & scratches from your car. Avail our dent paint services to make your car look like brand new.</p>
+                            </div>
+                            <div class="cl">&nbsp;&nbsp;&nbsp;</div>
+
+                        </li>
+                    </ul>
+
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+                <!-- End Box Latest Reviews -->
+                <!-- Box Latest Posts -->
+                <div class="box">
+                    <h2>About</h2>
+                    <ul>
+                        <li>
+                            <h5><a href="#">WHO WE ARE</a></h5>
+                            <p>
+                                AutoSpark is one point solution for all your worries related to car service & repairs.
+                                With its network of multi branded service station in Delhi NCR,Pune ,kolkata and Mumbai. AutoSpark is standardising car service & repair industry.
+                            </p>
+                        </li>
+                        @*&nbsp;*@
+
+                        <li>
+                            <h5><a href="#">OUR MISSION</a></h5>
+                            <p>
+                                AutoSpark strives to make car service & repair more easy and affordable for eveyone.
+                                Our mission is to provide a seamless service experience to all our customers in mimimum cost.
+                            </p>
+                        </li>
+                        @*&nbsp;*@
+                        <li>
+                            <h5><a href="#">WHAT MAKES US UNIQUE</a></h5>
+                            <p>
+                                Quality & customer satisfaction is what we believe in and With our state of the art tools & technologies
+                                we work hard to provide a premium quality service experience to our customers.
+                            </p>
+                        </li>
+                    </ul>
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+                <!-- End Box Latest Posts -->
+            </div>
+            <!-- End Sidebar -->
+
+            <!-- Main -->
+            <div id="main">
+                <!-- Top Image -->
+                <div class="transparent-frame">
+                    <div class="frame">&nbsp;</div>
+
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/Images/sls1.jpg" class="d-block w-100" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Images/sls2.jpg" class="d-block w-100" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Images/sls3.jpg" class="d-block w-100" alt="Third Slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                        </a>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+                <div class="cl">&nbsp;</div>
+                <!-- End Top Image -->
+                <!-- Box -->
+                <div class="box">
+                    <h2> Modified Tuning</h2>
+                    <ul class="line">
+                        <li> <a class="frm" ><img src="~/Images/car1.jpg" alt="" /></a> <a href="#">Swift</a> </li>
+                        <li> <a class="frm" ><img src="~/Images/car2.jpg" alt="" /></a> <a href="#">Honda City </a> </li>
+                        <li> <a class="frm" ><img src="~/Images/car3.jpg" alt="" /></a> <a href="#">Ford Taunus</a> </li>
+                    </ul>
+                    <div class="cl">&nbsp;</div>
+                </div>
+                <!-- End Box -->
+
+
+                <!-- Box -->
+                <div class="box">
+                    <h2>Services </h2>
+                    <ul>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/car4.jpg" alt="" /></a>
+                            <div class="info">
+                                <h4><a href="#">CAR SERVICE PACKAGES</a></h4>
+                                <p>
+                                    Forget all your worries about car service.
+                                    Get your car serviced at best service stations in Delhi NCR at lowest prices in the market.
+                                </p>
+                                <a class="up"></a>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/car5.jpg" alt="" /></a>
+                            <div class="info">
+                                <h4><a href="#">CAR DENT PAINT PACKAGES</a></h4>
+                                <p>
+                                    Get rid of dents & scratches from your car.
+                                    Avail our dent paint services to make your car look like brand new.
+                                </p>
+                                <a class="up"></a>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/car6.jpg" alt="" /></a>
+                            <div class="info">
+                                <h4><a href="#">CAR CLEANING SERVICE FROM PROFESSIONALS</a></h4>
+                                <p>
+                                    Bring back that new car feeling with our cleaning packages.
+                                    Choose from our car cleaning packages to make your car shine.
+                                </p>
+                                <a class="up"></a>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/car7.jpg" alt="" /></a>
+                            <div class="info">
+                                <h4><a href="#">WHEEL CARE PACKAGES</a></h4>
+                                <p>
+                                    An unbalanced wheel causes poor handling & effects your car's life too.
+                                    Visit a AutoSpark service station to ensure an optimum performance delivery from your car's wheels.
+                                </p>
+                                <a class="up"></a>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/car8.jpg" alt="" /></a>
+                            <div class="info">
+                                <h4><a href="#">CAR WRAPPING SERVICE</a></h4>
+                                <p>
+                                    Choose the colours that matches your personality.
+                                    AutoSpark offers wide variety of colour wraps such as matte, gloss, brushed metallic, chrome and many more.
+                                </p>
+                                <a class="up"></a>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                        </li>
+
+                        <li>
+                            <a href="#" class="image"><img src="~/Images/car9.jpg" alt="" /></a>
+                            <div class="info">
+                                <h4><a href="#">PREVENTIVE MAINTENANCE SERVICE </a></h4>
+                                <p>
+                                    To keep your car fine and running, we provide a regular check-up which will avoid your car from facing bigger problems. Also, cheering up your car with routine services will lead to better performance in return.
+                                </p>
+                                <a class="up"></a>
+                            </div>
+                            
+                        </li>
+                    </ul>
+
+                    <div class="cl">&nbsp;</div>
+                </div>
+                <!-- End Box -->
+            </div>
+            <!-- End Main -->
+            <div class="cl">&nbsp;</div>
+        </div>
+        <!-- End Content -->
+        <!--Footer Start -->
+        <!--<div id="footerwhole">
+            <p>&copy; AutoSpark.com. Design by <a href="#">AutoSpark.com</a></p>-->
+
+            <!-- End Footer -->
+        <!--</div>-->
+        <!-- End Shell -->
+        <!--For Coarousel -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+﻿@model  IEnumerable<MVCAutoSparkProject.Models.ServiceType>
+@{
+    ViewBag.Title = "ServiceType";
+}
+<br />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+<div style="display:inline-block"><b><h2 class="text-info">Servive Types List</h2></b></div>
+
+<br />
+<br/>
+<table id="custTable" class="table  table-condensed table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Type Of Services</th>
+            <th>Price(<i class="fa fa-inr"></i>)</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ServiceTpe</td>
+                <td>@item.Price</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.Partial("_NavbarPartial")
+

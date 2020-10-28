@@ -1,0 +1,60 @@
+﻿@model MVCAutoSparkProject.ViewModel.ServiceHistoryDetailViewModel
+@{
+    ViewBag.Title = "ServiceDetail";
+}
+<br/>
+
+<div class="row">
+    <div class="col-6">
+        <table class="table  table-condensed table-striped">
+            <thead class="table-dark">
+                <tr class="table-active">
+                    <th>Service Name</th>
+                    <th>Service Price</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @*@foreach (var item in Model.ServiceHistories)
+                    {*@
+                <tr>
+                    <td>@Model.ServiceHistories.ServiceType.ServiceTpe</td>
+                    <td>@Model.ServiceHistories.ServiceType.Price</td>
+                </tr>
+
+                @*}*@
+            </tbody>
+
+        </table>
+        @*@{
+              double s = 0.0;
+
+               foreach (var item in Model.Details)
+               {
+
+                   s += @item.Price;
+
+               }
+
+            }*@
+        <!--<tr class="table-success">
+        <td>Total Price</td>-->
+        @*<td>@s</td>*@
+        <!--</tr>-->
+
+
+
+    </div>
+    @*<div class="col-6">
+            <div class="form-group">
+                @Html.LabelFor(c => c.ServiceHistory.Miles)
+                @Html.TextBoxFor(m => m.ServiceHistory.Miles, new { @class = "form-control" })
+            </div>
+        </div>*@
+
+
+</div>
+
+@Html.Partial("_NavbarPartial")
+

@@ -1,0 +1,89 @@
+﻿@model MVCAutoSparkProject.ViewModel.CustomerCarViewModel
+
+@{
+    ViewBag.Title = "New";
+}
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+<br/>
+
+
+<div class="row">
+    <div class="col-6">
+        @Html.ActionLink("Add New Car", "NewCarAdd", new { id = Model.Customer.Id }, new { @class = "fa fa-plus fa 2 btn btn-info" })
+        <br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/>
+        @Html.ActionLink("Back to Customer List", "Index", "Customer", null, new { @class = "btn btn-outline-info " })
+    </div>
+    
+   
+        
+    
+
+    <div class="col-2 offset-2">
+        <h5><b class="label label-primary">Customer Details</b></h5>
+        <ul class="list-group" style="width:250%">
+            <li class="list-group-item">
+
+                @Html.LabelFor(m => m.Customer.Name)
+                <p>@Model.Customer.Name</p>
+            </li>
+            <li class="list-group-item">
+                @Html.LabelFor(m => m.Customer.EmailId)
+                <p>@Model.Customer.EmailId</p>
+            </li>
+            <li class="list-group-item">
+
+                @Html.LabelFor(m => m.Customer.PhoneNumber)
+                <p>@Model.Customer.PhoneNumber</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<br/>
+@Html.Partial("_NavbarPartial")
+
+<table class="table  table-condensed table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>VIN</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>COLOR</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cars)
+        {
+            <tr>
+                <td>@item.VIN</td>
+                <td>@item.BrandName</td>
+                <td>@item.Model</td>
+                <td>@item.Color</td>
+                <td> @Html.ActionLink("  Service History", "ServiceHistory", new { id = item.Id }, new { @class = "fa fa-wrench fa 2 btn btn-" })</td>
+
+                <td> @Html.ActionLink("  New Service", "AddNewService", new { id = item.Id }, new { @class = "fa fa-plus fa 2 btn btn-success" })</td>
+
+                <td>
+                    @Html.ActionLink(" ", "CCarEdit", new { id = item.Id }, new { @class = "fa fa-pencil-square-o fa 2 btn btn-primary" })
+                    @Html.ActionLink(" ", "DeleteCar", new { id = item.Id }, new { @class = "fa fa-trash-o btn btn-danger " })
+                </td>
+            </tr>
+        }
+
+
+
+
+
+
+
+    </tbody>
+</table>
+
+

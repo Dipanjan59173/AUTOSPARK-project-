@@ -1,0 +1,59 @@
+﻿@model  IEnumerable<MVCAutoSparkProject.Models.ServiceType>
+@{
+    ViewBag.Title = "ServiceType";
+}
+<br />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+<div style="display:inline-block"><b><h2 class="text-info">Servive Types List</h2></b></div>
+<div style="float:right;display:inline-block;margin-top:10px">
+    @Html.ActionLink("Add New Service", "NewServiceType", null, new { @class = "fa fa-plus fa 2 btn btn-info " })
+</div>
+<br />
+<br/>
+<table id="custTable" class="table  table-condensed table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Type Of Services</th>
+            <th>Price(<i class="fa fa-inr"></i>)</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ServiceTpe</td>
+                <td>@item.Price</td>
+                <td>
+                    @Html.ActionLink(" ", "EditServiceType", new { id = item.Id }, new { @class = "fa fa-pencil-square-o fa 2 btn btn-primary" })
+                    <button data-customer-id="@item.Id" class="btn btn-danger fa fa-trash-o js-delete"></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.Partial("_NavbarPartial")
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $('#custTable .js-delete').on('click', function () {
+                let btn = $(this)
+                if (confirm("Are you sure you want to delete this Service?")) {
+                    $.ajax({
+                        url: '/api/sevicetype/' + $(this).attr('data-customer-id'),
+                        method: 'DELETE',
+                        success: function () {
+                            //console.log("Delete Success....")
+                            btn.parents('tr').remove()
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+}

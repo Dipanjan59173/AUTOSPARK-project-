@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVCAutoSparkProject.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<br />
+
+<div style="display:inline-block"><b><h2 class="text-info">Customer List</h2></b></div>
+@*<div style="float:right;display:inline-block;margin-top:10px">
+    @Html.ActionLink("Create New Customer", "New", null, new { @class = "fa fa-plus fa 2 btn btn-info " })
+    <br />
+</div>*@
+
+
+<table id="custTable" class="table  table-condensed table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email id</th>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.EmailId</td>
+                <td>@Html.ActionLink("View Car", "New", new { id = item.Id }, new { @class = "fa fa-car btn" })</td>
+                @*<td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "fa fa-pencil-square-o fa 2 btn btn-primary" })
+                    <button data-customer-id="@item.Id" class="btn btn-danger fa fa-trash-o js-delete"></button>
+                </td>*@
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+
+@Html.Partial("_NavbarPartial")
+@*@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $('#custTable .js-delete').on('click', function () {
+                let btn = $(this)
+                if (confirm("Are you sure you want to delete this customer?")) {
+                    $.ajax({
+                        url: '/api/customer/' + $(this).attr('data-customer-id'),
+                        method: 'DELETE',
+                        success: function () {
+                            //console.log("Delete Success....")
+                            btn.parents('tr').remove()
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+}*@

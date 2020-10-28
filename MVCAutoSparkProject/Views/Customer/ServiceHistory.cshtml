@@ -1,0 +1,37 @@
+﻿@model MVCAutoSparkProject.ViewModel.CarServiceHistoryViewModel
+@{
+    ViewBag.Title = "ServiceHistory";
+}
+
+<br />
+<br />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+
+<table class="table  table-condensed table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Miles</th>
+            <th>Date Added</th>
+            <th></th>
+            <th></th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ServiceHistories)
+        {
+            <tr>
+                <td>@item.Miles</td>
+                <td>@item.Date.ToLongDateString()</td>
+
+                <td>@Html.ActionLink("Details", "ServiceDetail", new { id = item.Id }, new { @class = "form-control btn  btn-outline-info" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.Partial("_NavbarPartial")

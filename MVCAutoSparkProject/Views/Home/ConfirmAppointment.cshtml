@@ -1,0 +1,35 @@
+﻿
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConfirmAppointment</title>
+</head>
+    
+  <body style="background-color:khaki" >
+            <div class="container" style="text-align:center">
+            <h1>Welcome to  Auto sparks  </h1>
+            <img src="~/Images/car-engine.png" />
+     </div>
+     <div class="container" style="text-align:center">
+     <h2>Your slot is booked and the token number for your slot is :<h3 id="demo"></h3> </h2>
+
+      </div>
+        <div class="container" style="text-align:center">
+         <h2>Please  take a Snapsort of your booking token number !!</h2>
+         <h4>For Further Reffernce when you visit our Shop.</h4>
+        </div>
+
+      <script>
+        function randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min) + min);
+            }
+                document.getElementById("demo").innerHTML = randomNumber(1, 1000);
+      </script>
+
+   </body>
+    
+</html>

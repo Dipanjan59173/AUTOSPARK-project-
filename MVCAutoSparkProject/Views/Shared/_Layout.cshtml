@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - AutoSpark</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+
+</head>
+<body>
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Service Types", "ServiceType", "Customer")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>*@
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <hr />
+
+
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+
+
+        <!-- Site footer -->
+        <footer style=" margin-top:80px;padding-top:45px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h6>AutoSpark</h6>
+                        <p class="footer-links">
+                            <a href="/Home/Index/">Home</a>
+                            |
+                            <a href="/Home/Contact/">Contact</a>
+                        </p>
+                    </div>
+
+
+                    <div class="col-md-6 col-md-6">
+                        <i class="fa fa-map-marker"></i>
+                        309 - Rupa Solitaire,
+                        Bldg. No. A - 1, Sector - 1
+                        Mahape, Navi Mumbai - 400710
+
+                        <p><i class="fa fa-phone"> +91 22-27782183</i></p>
+
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-text">
+                            &copy; 2020 All Rights Reserved by
+                            <a>AutoSpark Pvt.Ltd.</a>.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+
+                        <a class="facebook" href="#"><i class="fa fa-facebook fa-2x text-info mx-3"></i></a>
+                        <a class="twitter" href="#"><i class="fa fa-google-plus fa-2x text-danger mx-3"></i></a>
+                        <a class="dribbble" href="#"><i class="fa fa-twitter fa-2x text-info mx-3"></i></a>
+                        <a class="linkedin" href="#"><i class="fa fa-youtube fa-2x text-danger mx-3"></i></a>
+
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        @RenderSection("scripts", required: false)
+</body>
+</html>

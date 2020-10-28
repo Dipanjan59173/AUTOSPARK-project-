@@ -1,0 +1,34 @@
+﻿@model MVCAutoSparkProject.Models.ServiceType
+@{
+    ViewBag.Title = "EditServiceType";
+}
+
+<h2>EditServiceType</h2>
+
+@using (Html.BeginForm("SaveEditService", "Customer"))
+{
+<div class="form-group" style="width:30%">
+    @Html.Label("Service Type")
+    @Html.TextBoxFor(m => m.ServiceTpe, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServiceTpe, "", new { @class = "text-danger border-danger" })
+</div>
+<div class="form-group" style="width:30%">
+    @Html.LabelFor(a => a.Price)
+    @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger border-danger" })
+</div>
+<div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Back to List", "ServiceType", "Customer", null, new { @class = "btn btn-outline-info " })
+
+</div>
+    <div>
+
+    </div>
+    @Html.HiddenFor(m => m.Id);
+
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

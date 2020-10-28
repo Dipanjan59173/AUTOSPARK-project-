@@ -1,0 +1,224 @@
+﻿@model MVCAutoSparkProject.ViewModel.CarServiceViewModel
+@{ ViewBag.Title = "AddNewService"; }
+
+<br/>
+
+<h2>AddNewService</h2>
+@*<h2>@Model.Car.Model</h2>
+    <h2>@Model.Car.Year.ToLongDateString()</h2>
+    <h2>@Model.Car.Id</h2>*@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        $(document).ready(function () {
+            var tagsValue = @Html.Raw(Json.Encode(Model));
+            if (tagsValue.newvalue == 1) {
+                let value = 'No service has been added yet.Please add a service to be performed.';
+                $('#showtablediv').hide();
+                $('#showdiv').append(' <p>' + value + '</p >')
+
+            }
+        });
+        var DataList = [];
+        $('#btnsave').click(function () {
+            var selected = $('#ddlstatus :selected');
+            var TotalValue='';
+            selected.each(function (a) {
+                var ddlvalue = $(this).val();
+                var ddlText = $(this).text();
+                var TotalText = 'Total';
+                var Price = '';
+                var status = 'true';
+
+                @*@var tagsValue = @Html.Raw(Json.Encode(Model))@*@
+                var tags = @Html.Raw(Json.Encode(Model.ServiceTypesList));
+
+                if (DataList.length > 0) {
+                    for (var k = 0; k < DataList.length; k++) {
+                        if (DataList[k].ddlid == ddlvalue) {
+                            status = 'false';
+                        }
+                    }
+                }
+
+                for (i = 0; i < tags.length; i++)
+                {
+                    if (status == 'true') {
+                        if (tags[i].Id == ddlvalue) {
+                            Price = tags[i].Price;
+                            DataList.push({
+                                Id: i,
+                                Price: tags[i].Price,
+                                ddlid: tags[i].Id
+                            });
+                        }
+                    }
+                }
+
+                $('#showdiv').hide();
+                $('#showtablediv').show();
+                if (status == 'true') {
+                    $('#tbldept tbody').append('<tr><td>' + ddlText + '</td><td>' + Price + '</td></tr > '
+                    );
+                }
+                TotalValue = GetTotal(DataList);
+                $('#total_price').html(TotalValue);
+            });
+        });
+       $('#btnhistory').click(function () {
+            //  alert('Saving the Services');
+            //  var data = $("#tbldept").serialize()
+            //  $.ajax({
+            //      type: "POST",
+            //      url: "/Customer/SaveNewServiceForCarjyjj",
+            //      data: data,
+            //      //dataType: "json",
+            //      //data: '{objDepartmentModel: ' + JSON.stringify(obj) + '}',
+            //      //data: AddAntiForgeryToken(obj, "DEPTID"),
+            //      success: function (response) {
+            //          alert("u r done");
+            //          //var obj = $.parseJSON(response_data_json);
+            //          //var tablemessagedata = $('#tblmessage tbody').html('');
+            //          //$('#hdnID').val(obj.rowID);
+            //          //}
+            //      }
+            //      //error: function (xhr, textStatus, errorThrown) {
+            //      //    //alert("Error in saveing data");
+            //      //    alert(errorThrown);
+            //      //}
+            ////  function SaveServiceRecord();
+
+            //  });
+              SaveServiceRecord();
+        });
+
+
+    });
+
+
+
+    function GetTotal(Dlist) {
+        var total = 0;
+        for (var i = 0; i < Dlist.length; i++) {
+            total += Dlist[i].Price;
+        }
+        return total;
+    }
+    function SaveServiceRecord() {
+        var listserviceHistory = {};
+        var mile = '';
+        var dateofservice = '';
+
+        var ServiceHistory = [];
+        $('#tbldept').find("tr:gt(0)").each(function () {
+            var serviceType = $(this).find("td:eq(0)").text();
+            var price = $(this).find("td:eq(1)").text();
+            //alert(serviceType + " " + price);
+
+
+            ServiceHistory.push({
+                ServiceTpe: serviceType,
+                Price: price
+            });
+
+
+        });
+
+
+        listserviceHistory.ServiceHistory = ServiceHistory;
+        listserviceHistory.miles = $("#TxtMiles").val();
+        listserviceHistory.dateofservice = $("#TxtDate").val();
+        listserviceHistory.CarId = $("#TxtCarId").val();
+
+
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            contentType: 'application/json; charset=utf=8',
+            url: "/Customer/AddNewService",
+            data: JSON.stringify(listserviceHistory),
+            success: function (data) {
+                alert(data);
+            },
+            error: function () {
+                alert('there is some problem');
+            }
+        });
+    }
+
+
+
+
+
+</script>
+
+@Html.Partial("_NavbarPartial")
+
+
+<input type="submit" name="submit" value="AddToCart" id="btnsave" />
+
+
+<div>
+    @Html.Label("Add Services")
+    @Html.DropDownListFor(m => m.ServiceHistory.ServiceTypeId, Model.ServiceTypesListNew, "- Please select -",
+                                                  new { @class = "form-control", id = "ddlstatus" })
+
+    @*@Html.DropDownListFor(a => a.ServiceHistory.ServiceTypeId, new SelectList(Model.ServiceTypesListNew, "Id", "ServiceTpe"), " ", new { @class = "form-control", id = "ddlstatus" })*@
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(a => a.ServiceHistory.Date)
+    @Html.TextBoxFor(m => m.ServiceHistory.Date, new { @class = "form-control", @Id = "TxtDate" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(a => a.ServiceHistory.Miles)
+    @Html.TextBoxFor(m => m.ServiceHistory.Miles, new { @class = "form-control", @Id = "TxtMiles" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(a => a.ServiceHistory.CarId)
+    @Html.TextBoxFor(m => m.ServiceHistory.CarId, new { @class = "form-control", @Id = "TxtCarId" })
+</div>
+<div>YOUR CAR ID :@Model.Car.Id</div>
+
+<div>
+
+
+    @*<input type="submit" name="submit" value="SaveAfterFinialService" id="btnhistory" />*@
+    <button type="submit" class="btn btn-primary" id="btnhistory">Save</button>
+    @Html.ActionLink("Back", "Index", "Customer", null, new { @class = "btn btn-outline-info " })
+</div>
+
+<div id="showdiv">
+</div>
+<div id="showtablediv">
+    <p>
+        service added
+    </p>
+    <table id="tbldept" class="table  table-condensed table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(m => Model.ServiceTypesList.FirstOrDefault().ServiceTpe)</th>
+                <th>@Html.DisplayNameFor(m => Model.ServiceTypesList.FirstOrDefault().Price)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td id="total_price"></td>
+
+            </tr>
+        </tfoot>
+
+    </table>
+</div>
+
+@Html.HiddenFor(c => c.SelectedServiceId)
+
+

@@ -1,0 +1,49 @@
+﻿@model MVCAutoSparkProject.Models.Car
+@{
+    ViewBag.Title = "CCarEdit";
+}
+<br />
+<div class="bg-info">
+    <h2 class="text-light text-center text-wrap">Give Car Details You Want To Edit For Service</h2>
+</div>
+<br />
+
+
+
+@using (Html.BeginForm("SaveEditCar", "Customer"))
+{
+    <div class="form-group" style="width:30%">
+        @Html.LabelFor(m => m.VIN)
+        @Html.TextBoxFor(m => m.VIN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.VIN, "", new { @class = "text-danger border-danger" })
+    </div>
+    <div class="form-group" style="width:30%">
+        @Html.LabelFor(m => m.BrandName)
+        @Html.TextBoxFor(m => m.BrandName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BrandName, "", new { @class = "text-danger border-danger" })
+    </div>
+    <div class="form-group" style="width:30%">
+        @Html.LabelFor(m => m.Model)
+        @Html.TextBoxFor(m => m.Model, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger border-danger" })
+    </div>
+    <div class="form-group" style="width:30%">
+        @Html.LabelFor(m => m.Style)
+        @Html.TextBoxFor(m => m.Style, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Style, "", new { @class = "text-danger border-danger" })
+    </div>
+    <div class="form-group" style="width:30%">
+        @Html.LabelFor(m => m.Year)
+        @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger border-danger" })
+    </div>
+    <div class="form-group" style="width:30%">
+        @Html.LabelFor(m => m.Color)
+        @Html.TextBoxFor(m => m.Color, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger border-danger" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Back", "Index", "Customer", null, new { @class = "btn btn-outline-info " })
+
+    @Html.HiddenFor(c => c.Id)
+}
